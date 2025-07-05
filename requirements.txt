@@ -2,3 +2,6 @@ pandas
 requests
 python-dotenv
 pytest
+black
+flake8
+mypy
