@@ -39,7 +39,7 @@ def get_session(timeout: int, retries: int) -> requests.Session:
     def timed_request(method: str, url: str, **kwargs) -> requests.Response:
         return original_request(method, url, timeout=timeout, **kwargs)
 
-    session.request = timed_request
+    session.request = timed_request  # type: ignore[method-assign]
     return session
 
 
@@ -82,7 +82,7 @@ def enrich_coords(
         "no_annotations": 1,
     }
     logger.debug(f"Requesting coords data: {params}")
-    r = session.get(GEOCODE_API_URL, params=params)
+    r = session.get(GEOCODE_API_URL, params=params)  # type: ignore[arg-type]
     r.raise_for_status()
     results = r.json().get("results", [])
     if not results:
@@ -113,8 +113,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--timeout", type=int, default=5, help="HTTP timeout in seconds"
     )
-    parser.add_argument("--retries", type=int, default=2, help="Number of HTTP retries")
-    parser.add_argument("--verbose", action="store_true", help="Enable debug logging")
+    parser.add_argument(
+        "--retries", type=int, default=2, help="Number of HTTP retries"
+    )
+    parser.add_argument(
+        "--verbose", action="store_true", help="Enable debug logging"
+    )
     return parser.parse_args()
 
 
