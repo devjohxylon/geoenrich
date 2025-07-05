@@ -1,5 +1,6 @@
 pandas
 requests
 python-dotenv
+pytest
 pandas-stubs
 types-requests

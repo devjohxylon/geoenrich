@@ -1,3 +1,5 @@
+# type: ignore
+tests / test_geocode.py
 from geoenrich import enrich_ip, enrich_coords
 
 
@@ -10,7 +12,6 @@ class DummyResponse:
 
 
 def test_enrich_ip(monkeypatch):
-    # Mock Session.get to return a consistent payload
     monkeypatch.setattr(
         "geoenrich.requests.Session.get",
         lambda self, url, **kwargs: DummyResponse(
@@ -30,7 +31,6 @@ def test_enrich_ip(monkeypatch):
 
 
 def test_enrich_coords(monkeypatch):
-    # Mock Session.get for reverse geocode
     dummy_payload = {
         "results": [
             {
