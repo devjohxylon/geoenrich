@@ -1,5 +1,6 @@
 [![CI](https://github.com/devjohxylon/geoenrich/actions/workflows/ci.yml/badge.svg)]
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]
+[![codecov](https://codecov.io/gh/devjohxylon/geoenrich/branch/main/graph/badge.svg?flag=unittests)](https://codecov.io/gh/devjohxylon/geoenrich)
 
 # Geo-Enricher CLI
 
