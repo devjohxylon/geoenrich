@@ -12,6 +12,16 @@ A fast, configurable command-line tool to enrich CSVs of IP addresses or latitud
 
 ---
 
+## 📆 Roadmap
+
+- [ ] Support nested JSON flattening (`--flatten`)  
+- [ ] Custom column ordering (`--columns`)  
+- [ ] Stream very large files via ijson  
+- [ ] Windows PowerShell native integration  
+- [ ] Improve geocoding fallback logic  
+
+---
+
 ## 📥 Installation
 
 ### From source
