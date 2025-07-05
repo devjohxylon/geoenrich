@@ -1,9 +1,5 @@
 pandas
 requests
 python-dotenv
-pytest
-black
-flake8
-mypy
 pandas-stubs
 types-requests
