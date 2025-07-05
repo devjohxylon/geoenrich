@@ -36,7 +36,7 @@ def get_session(timeout: int, retries: int) -> requests.Session:
     session.mount("https://", adapter)
     original_request = session.request
 
-    def timed_request(method: str, url: str, **kwargs) -> requests.Response:
+    def timed_request(method: str, url: str, **kwargs) -> Any:
         return original_request(method, url, timeout=timeout, **kwargs)
 
     session.request = timed_request  # type: ignore[method-assign]
@@ -113,12 +113,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--timeout", type=int, default=5, help="HTTP timeout in seconds"
     )
-    parser.add_argument(
-        "--retries", type=int, default=2, help="Number of HTTP retries"
-    )
-    parser.add_argument(
-        "--verbose", action="store_true", help="Enable debug logging"
-    )
+    parser.add_argument("--retries", type=int, default=2, help="Number of HTTP retries")
+    parser.add_argument("--verbose", action="store_true", help="Enable debug logging")
     return parser.parse_args()
 
 

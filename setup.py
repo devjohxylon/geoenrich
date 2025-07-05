@@ -11,12 +11,12 @@ setup(
     long_description_content_type="text/markdown",
     license="MIT",
     packages=find_packages(),
-    install_requires=["pandas","requests","python-dotenv"],
+    install_requires=["pandas", "requests", "python-dotenv"],
     entry_points={"console_scripts": ["geoenrich=geoenrich:main"]},
     classifiers=[
-      "Programming Language :: Python :: 3",
-      "License :: OSI Approved :: MIT License",
-      "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
     ],
     python_requires=">=3.8",
 )
