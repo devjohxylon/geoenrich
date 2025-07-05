@@ -1,4 +1,5 @@
 # type: ignore
+
 from geoenrich import enrich_ip, enrich_coords
 
 
@@ -23,8 +24,8 @@ def test_enrich_ip(monkeypatch):
     )
     data = enrich_ip('8.8.8.8', timeout=5, retries=2)
     assert data['ip_country'] == 'United States'
-    assert data['ip_lat']     == 40.7
-    assert data['ip_lng']     == -74.0
+    assert data['ip_lat'] == 40.7
+    assert data['ip_lng'] == -74.0
 
 
 def test_enrich_coords(monkeypatch):
@@ -42,6 +43,7 @@ def test_enrich_coords(monkeypatch):
     )
     data = enrich_coords(40.7128, -74.0060, timeout=5, retries=2)
     assert data['geo_country'] == 'United States'
-    assert data['geo_city']    == 'NYC'
-    assert data['geo_lat']     == 40.7
-    assert data['geo_lng']     == -74.0
+    assert data['geo_city'] == 'NYC'
+    assert data['geo_lat'] == 40.7
+    assert data['geo_lng'] == -74.0
+    
