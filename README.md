@@ -1,5 +1,5 @@
+cat > README.md << 'EOF'
 [![CI](https://github.com/devjohxylon/geoenrich/actions/workflows/ci.yml/badge.svg)]
-[![PyPI](https://img.shields.io/pypi/v/geoenrich.svg)]
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]
 
 # Geo-Enricher CLI
@@ -8,38 +8,72 @@ A fast, configurable command-line tool to enrich CSVs of IP addresses or latitud
 
 - **Country**, **Region/State**, **City**  
 - **Latitude** & **Longitude**  
-- **Timeouts**, **Retries**, **Verbose** logging
+- **Configurable** timeouts, retries, and verbose logging  
+
+---
 
 ## 📥 Installation
 
+### From source
+\`\`\`bash
 git clone https://github.com/devjohxylon/geoenrich.git
 cd geoenrich
+
+# Create & activate virtualenv
 python -m venv venv
-source venv/Scripts/activate   # Git Bash on Windows
+# Git Bash on Windows:
+source venv/Scripts/activate
+
+# Install runtime dependencies
 pip install -r requirements.txt
+
+# Install dev tools (for testing/formatting/etc.)
 pip install -r requirements-dev.txt
+
+# Editable install for development
 pip install -e .
+\`\`\`
 
-🚀 Usage
+---
 
-# 1) Enrich IPs (default column 'ip')
-geoenrich input.csv output.csv
+## 🚀 Usage
 
-# 2) Enrich latitude/longitude pair
-geoenrich --ip-col none --coord-cols lat,lon input.csv output.csv
+1. **Enrich IP column** (default column name is \`ip\`):  
+   \`\`\`bash
+   geoenrich input.csv output.csv
+   \`\`\`
 
-# 3) Custom timeouts, retries, verbose
-geoenrich --timeout 10 --retries 3 --verbose input.csv output.csv
+2. **Enrich latitude/longitude columns**:  
+   \`\`\`bash
+   geoenrich --ip-col none --coord-cols lat,lon input.csv output.csv
+   \`\`\`
 
-📊 Exit Codes
-Code	Meaning
-0	Success
-1	I/O error
-2	Invalid input file
-3	HTTP error or timeout
-4	Malformed CSV
-5	Missing required columns
+3. **Custom timeouts, retries, verbose**:  
+   \`\`\`bash
+   geoenrich \
+     --timeout 10 \
+     --retries 3 \
+     --verbose \
+     input.csv \
+     output.csv
+   \`\`\`
 
-⚖️ License
-MIT © 2025 John Lohse
-See LICENSE for details.
+---
+
+## 📊 Exit Codes
+
+| Code | Meaning                     |
+|:----:|-----------------------------|
+| 0    | Success                     |
+| 1    | I/O error                   |
+| 2    | Invalid input file          |
+| 3    | HTTP error or timeout       |
+| 4    | Malformed CSV               |
+| 5    | Missing required columns    |
+
+---
+
+## ⚖️ License
+
+MIT © 2025 devjohxylon 
+See [LICENSE](LICENSE) for full details.  
